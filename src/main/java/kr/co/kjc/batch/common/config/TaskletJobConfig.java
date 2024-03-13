@@ -7,7 +7,6 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
-import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.NonTransientResourceException;
@@ -15,12 +14,14 @@ import org.springframework.batch.item.ParseException;
 import org.springframework.batch.item.UnexpectedInputException;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Slf4j
 @EnableBatchProcessing
 @Configuration
-public class BatchConfig {
+@Profile("tasklet")
+public class TaskletJobConfig {
 
   @Bean
   public Job myJob(JobRepository jobRepository, Step step) {
