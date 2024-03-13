@@ -74,7 +74,7 @@ decorator.datasource.p6spy:
 # Swagger Doc
 springdoc:
   version: v1.0.0
-  packages-to-scan: kr.co.kjc.settlement
+  packages-to-scan: kr.co.kjc.batch
   swagger-ui:
     path: /api-docs
     tags-sorter: alpha
