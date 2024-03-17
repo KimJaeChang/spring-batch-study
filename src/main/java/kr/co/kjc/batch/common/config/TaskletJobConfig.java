@@ -20,7 +20,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Slf4j
 @EnableBatchProcessing
 @Configuration
-@Profile("tasklet")
 public class TaskletJobConfig {
 
   @Bean

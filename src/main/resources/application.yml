@@ -1,6 +1,6 @@
 spring:
   application:
-    name: settlement
+    name: spring-batch-study
   devtools:
     livereload:
       enabled: true
