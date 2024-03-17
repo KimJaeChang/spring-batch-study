@@ -7,6 +7,7 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
+import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.NonTransientResourceException;
@@ -20,6 +21,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Slf4j
 @EnableBatchProcessing
 @Configuration
+@Profile("tasklet")
 public class TaskletJobConfig {
 
   @Bean
@@ -34,6 +36,7 @@ public class TaskletJobConfig {
     return new StepBuilder("myStep", jobRepository)
         .<String, String>chunk(1000,transactionManager)
         .reader(itemReader())
+        .processor(itemProcessor())
         .writer(itemWriter())
         .build();
   }
@@ -45,6 +48,16 @@ public class TaskletJobConfig {
       public String read()
           throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
         return "Read OK";
+      }
+    } ;
+  }
+
+  @Bean
+  public ItemProcessor<String, String> itemProcessor() {
+    return new ItemProcessor() {
+      @Override
+      public Object process(Object item) throws Exception {
+        return "Processer OK";
       }
     } ;
   }

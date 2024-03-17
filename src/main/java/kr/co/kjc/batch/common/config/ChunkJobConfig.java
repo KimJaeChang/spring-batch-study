@@ -20,7 +20,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Slf4j
 @EnableBatchProcessing
 @Configuration
-@Profile("chuck")
+@Profile("chunk")
 public class ChunkJobConfig {
 
   @Bean
@@ -34,8 +34,8 @@ public class ChunkJobConfig {
   public Step myStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
     return new StepBuilder("myStep", jobRepository)
         .<String, String>chunk(1000,transactionManager)
-        .reader(itemReader())
-        .writer(itemWriter())
+//        .reader(itemReader())
+//        .writer(itemWriter())
         .build();
   }
 
