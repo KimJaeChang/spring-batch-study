@@ -53,3 +53,5 @@
       4. ScopeConfiguration.class의 jobScope 메소드 실행
       5. AutomaticJobRegistrarBeanPostProcessor.class의 postProcessAfterInitialization 메소드 실행
       6. BatchObservabilityBeanPostProcessor.class의 postProcessAfterInitialization 메소드 실행
+
++ #### 정수원 님의 스프링 배치 강의를 들으면서 정리한 내용입니다.
