@@ -39,7 +39,7 @@
         + JobBuilderFactory와 SteopBuilderFactory 생성
         + 스프링 배치의 주요 구성 요소 생성 - 프록시 객체로 생성됨
       + BatchConfigurerCofiguration
-        + <span style="color:red">사용자 정의 BatchCofigurer 인터페이스를 구현하여 사용할 수 있음</span>
+        + <span style="color:orange"><U>**사용자 정의 BatchCofigurer 인터페이스를 구현하여 사용할 수 있음**</U></span>
         + BasicBatchConfigurer
           + SimpleBatchConfiguration에서 생성한 프록시 객체의 실제 대상 객체를 생성하는 설정 클래스
           + 빈으로 의존성 주입 받아서 주요 객체들을 참조해서 사용할 수 있다.
